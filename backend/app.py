@@ -19,7 +19,18 @@ bug_id_counter = 1
 
 @app.route('/bugs', methods=['GET'])
 def get_bugs():
-    return jsonify(bugs)
+    status = request.args.get('status')
+    priority = request.args.get('priority')
+    
+    filtered_bugs = bugs
+    
+    if status:
+        filtered_bugs = [bug for bug in filtered_bugs if bug['status'] == status]
+    
+    if priority:
+        filtered_bugs = [bug for bug in filtered_bugs if bug['priority'] == priority]
+        
+    return jsonify(filtered_bugs)
 
 @app.route('/bugs', methods=['POST'])
 def create_bug():

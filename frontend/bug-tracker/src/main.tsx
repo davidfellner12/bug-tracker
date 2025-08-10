@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
+import App from './components/App.tsx'
 import './index.css'
+import { ThemeProvider } from './contexts/ThemeContext.tsx'
 
 // ✅ Sentry imports
 import * as Sentry from '@sentry/react'
@@ -19,7 +20,9 @@ Sentry.init({
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <App />
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
     </StrictMode>,
 )
 
