@@ -1,0 +1,5 @@
+flask
+flask-cors
+sentry-sdk
+Flask-JWT-Extended
+passlib
