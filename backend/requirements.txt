@@ -3,3 +3,5 @@ flask-cors
 sentry-sdk
 Flask-JWT-Extended
 passlib
+pytest==8.2.2
+pytest-flask==1.3.0
